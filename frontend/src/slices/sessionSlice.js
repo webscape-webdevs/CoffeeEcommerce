@@ -55,12 +55,18 @@ export const sessionSlice = createSlice({
     isAuthenticated: false,
     loading: false,
     error: "",
+    phonenumber: ''
   },
   reducers: {
     setSessionUser: (state, action) => {
       const { payload } = action;
 
       state.sessionUser.push(payload);
+    },
+    setPhonenumber: (state, action) => {
+      const { payload } = action;
+
+      state.phonenumber.push(payload);
     },
   },
 
