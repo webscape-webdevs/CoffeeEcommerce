@@ -3,7 +3,7 @@ import { IoIosSearch } from "react-icons//io";
 import { IoPersonCircleOutline } from "react-icons/io5";
 import { PiShoppingCartSimpleBold } from "react-icons/pi";
 import { AiOutlineMenu } from "react-icons/ai";
-import LogoIcon from "../../Images/logo.svg";
+import LogoIcon from "../../assets/Images/logo.svg";
 import Header from "./Header";
 
 export default function Navbar() {

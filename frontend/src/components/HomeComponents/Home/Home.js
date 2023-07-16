@@ -1,7 +1,7 @@
 import React, { useState, useEffect, useRef, useCallback } from "react";
 import styled from "styled-components";
-import Left from "../../Images/leftside.svg";
-import right from "../../Images/rightside.svg";
+import Left from "../../../assets/Images/leftside.svg";
+import right from "../../../assets/Images/rightside.svg";
 import gsap from "gsap";
 import { CustomEase } from "gsap/CustomEase";
 import Video from "./Coffee.mp4";

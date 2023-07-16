@@ -1,5 +1,5 @@
 import { createGlobalStyle } from "styled-components";
-import font from "./Fonts/Fontspring-DEMO-hernandezbros-regular.otf";
+import font from "./assets/Fonts/Fontspring-DEMO-hernandezbros-regular.otf";
 
 const GlobalStyle = createGlobalStyle`
  @font-face {

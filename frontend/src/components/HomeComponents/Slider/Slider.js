@@ -1,6 +1,6 @@
 import React, { useEffect, useState, useRef, useCallback } from "react";
 import styled from "styled-components";
-import cafe from "../../Images/bb201a3393c4dd27d8c758e2bf7c.jpg.webp";
+import cafe from "../../../assets/Images/bb201a3393c4dd27d8c758e2bf7c.jpg.webp";
 import gsap from "gsap";
 import ScrollTrigger from "gsap/ScrollTrigger";
 
