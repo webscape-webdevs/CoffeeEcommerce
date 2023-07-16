@@ -1,0 +1,70 @@
+.navbar {
+  display: flex;
+  justify-content: space-between;
+  padding: 10px 30px;
+  align-items: center;
+  width: 98%;
+  position: fixed;
+  z-index: 200;
+  background: hsla(0, 0%, 100%, 0.47) !important;
+  backdrop-filter: blur(8px);
+}
+
+.navbar-rightSide {
+  display: flex;
+  align-items: center;
+}
+
+.navabr-icon {
+  font-size: 40px !important;
+  margin-right: 20px;
+  cursor: pointer;
+}
+
+.cartIcon-container {
+  background-color: white;
+  border-radius: 50%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 40px;
+  height: 40px;
+  margin-right: 20px;
+  cursor: pointer;
+}
+
+.cartIcon {
+  font-size: 25px !important;
+}
+
+.cartIcon-container:hover,
+.navabr-icon:hover {
+  scale: 1.1;
+}
+
+.navbar-menu {
+  z-index: 1500;
+}
+
+.menuBurger {
+  width: 35px !important;
+  height: 25px !important;
+  /* position: unset !important; */
+  overflow: visible !important;
+  padding: 0 !important;
+  left: 30px !important;
+  top: 25px !important;
+}
+
+.menuBurgerItem {
+  width: 35px !important;
+  height: 2px !important;
+}
+
+.nav1,
+.nav2,
+.nav3,
+.nav4 {
+  margin-top: -74px;
+  height: 105vh !important;
+}

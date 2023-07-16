@@ -1,6 +1,6 @@
-import { createGlobalStyle } from 'styled-components';
-import font from './Fonts/Fontspring-DEMO-hernandezbros-regular.otf'
- 
+import { createGlobalStyle } from "styled-components";
+import font from "./Fonts/Fontspring-DEMO-hernandezbros-regular.otf";
+
 const GlobalStyle = createGlobalStyle`
  @font-face {
     font-family: 'OurFont';
@@ -22,9 +22,13 @@ const GlobalStyle = createGlobalStyle`
     margin: 0;
     padding: 0;
     background-color:#d1cbb8;
+    overflow-x: hidden;
+   }
 
+   .gLIJZe{
+    overflow-y: hidden;
    }
    
 `;
- 
+
 export default GlobalStyle;
