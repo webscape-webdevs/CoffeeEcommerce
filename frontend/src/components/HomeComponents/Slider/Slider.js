@@ -2,42 +2,46 @@ import React, { useEffect, useState, useRef, useCallback } from "react";
 import styled from "styled-components";
 import cafe from "../../../assets/Images/bb201a3393c4dd27d8c758e2bf7c.jpg.webp";
 import gsap from "gsap";
+import { CustomEase } from "gsap/CustomEase";
+
 import ScrollTrigger from "gsap/ScrollTrigger";
 
 gsap.registerPlugin(ScrollTrigger);
 
 const Slider = () => {
+
   const Imagediv = useRef();
   const Covera = useRef();
   const Container = useRef();
+  CustomEase.create("Seperator", "M0,0 C0.05,0.19 0.33,0.87 1,1");
 
   const Handleanimation = (event) => {
     const target = event.currentTarget;
 
     gsap.to(target, {
       scale: 0.95,
-      duration: 0.2,
-      ease: "power4".out,
+      duration: 0.1,
+      ease: "Seperator",
       yoyo: true,
       repeat: 1,
     });
   };
 
   const animation = useCallback(() => {
+
     const Section = gsap.utils.toArray(Imagediv.current.children);
     const t1 = gsap.timeline({});
-
+     
     t1.fromTo(
       [Imagediv.current, Imagediv.current.children],
       {
-        x: 900,
-        opacity: 0,
-        stagger: 0.1,
+        x: 950,
+         stagger: 0.1,
         duration: 2.5,
       },
-      { x: 550, opacity: 1, stagger: 0.1, duration: 2 }
+      { x: 650, stagger: 0.1, duration: 2 }
     );
-
+     
     gsap.to(Section, {
       xPercent: -150 * (Section.length - 1),
       ease: "none",
@@ -45,11 +49,12 @@ const Slider = () => {
       scrollTrigger: {
         trigger: Imagediv.current,
         start: "top top",
-        pin: true,
-        scrub: 2,
+        pin: Covera.current,
+ 
+        scrub: 1.5,
         markers: true,
         end: `+=3000`,
-      },
+       },
       onUpdate: () => {
         console.log("Imagediv.current", Imagediv.current);
         console.log("Container.current", Container.current);
@@ -69,9 +74,7 @@ const Slider = () => {
     <Cover ref={Covera}>
       <div ref={Container}>
         <Imagecontainer ref={Imagediv}>
-          <Textabsolute>
-            <h1>hello</h1>
-          </Textabsolute>
+         
           <Imageelement onClick={Handleanimation}>
             <img src={cafe} alt="" />
           </Imageelement>
@@ -95,8 +98,7 @@ export default Slider;
 const Textabsolute = styled.div`
   position: absolute;
   top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
+   transform: translate(-50%, -50%);
   color: white;
   font-size: 5rem;
 `;
@@ -106,7 +108,7 @@ const Cover = styled.div`
   display: flex;
   align-items: center;
   justify-content: center;
-`;
+ `;
 const Imagecontainer = styled.div`
   height: 100vh;
   display: flex;
