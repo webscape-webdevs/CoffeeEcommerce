@@ -9,7 +9,9 @@ const Container = () => {
     <>
       <Hero />
       <Minimap />
+ 
     </>
+    
   );
 };
 

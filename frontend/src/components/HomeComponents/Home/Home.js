@@ -37,13 +37,17 @@ const Home = () => {
     const Text = new SplitType(textmain.current.children[0].children[0], { types: "lines" });
     const Text1 = new SplitType(textmain.current.children[1].children[0], { types: "lines" });
     const Text2 = new SplitType(textmain.current.children[2].children[0], { types: "lines" });
-
-    CustomEase.create("Bean", "M0,0 C0.95,0.05 0.23,0.97 1,1  ");
+  
+    CustomEase.create("Seperator", "M0,0 C0.05,0.19 0.33,0.87 1,1");
+    CustomEase.create("Bean", "M0,0 C0.36,0.26 0.39,0.97 1,1   ");
+    CustomEase.create("textanm", "M0,0 C0.33,-0.01 0.38,0.95 1,1    ");
+    CustomEase.create("vida", "M0,0 C0.43,0 0.4,0.95 1,1     ");
 
     var tl = gsap.timeline({});
+    tl.set(document.body, {overflow: "hidden"})
 
-    tl.to([Lefta.current], { translateX: -5, rotate: 4, duration: 0.1, ease: "Expo".easeout }, "+2");
-    tl.to([Righta.current], { translateX: 15, rotate: -4, duration: 0.1, ease: "Expo".easeout }, "+2");
+    tl.to([Lefta.current], { translateX: -5, rotate: 4, duration: 0.1, ease: "Seperator" }, "+2");
+    tl.to([Righta.current], { translateX: 15, rotate: -4, duration: 0.1, ease: "Seperator" }, "+2");
 
     tl.to([Lefta.current], { translateX: -350, translateY: -100, rotate: 20, duration: 1.5, ease: "Bean" }, "+2.2");
     tl.to([Righta.current], { translateX: 380, translateY: -100, rotate: -20, duration: 1.5, ease: "Bean" }, "+2.2");
@@ -56,6 +60,9 @@ const Home = () => {
       {
         translateY: "-90rem",
         duration: 5,
+        ease: "vida",
+
+        absolute: true,
         oncomplete: () => {
           const display = () => {
             Covera.current.children[0].style.display = "none";
@@ -70,6 +77,7 @@ const Home = () => {
       {
         translateY: "20rem",
         duration: 1,
+        absolute: true,
         oncomplete: () => {
           const display = () => {
             Covera.current.children[3].style.display = "none";
@@ -80,8 +88,9 @@ const Home = () => {
       "-=5"
     );
 
+
     //1
-    tl.to(Text.lines, { ease: "Power1".easeout, autoAlpha: 0.1, translateY: -222, duration: 2, absolute: true }, "--=5");
+    tl.to(Text.lines, { ease: "textanm".easeout, autoAlpha: 0.1, translateY: -222, duration: 2, absolute: true }, "--=5");
 
     tl.to(
       textmain.current.children[0].children[1],
@@ -94,14 +103,15 @@ const Home = () => {
         display: "block",
         translateY: 0,
         duration: 2,
+        absolute: true,
         autoAlpha: 1,
-        ease: "Power4".easeout,
+        ease: "textanm",
       },
       "--=4.8"
     );
 
     //2
-    tl.to(Text1.lines, { ease: "Power1".easeout, autoAlpha: 0.1, translateY: -222, duration: 2, absolute: true }, "--=5");
+    tl.to(Text1.lines, { ease: "textanm".easeout, autoAlpha: 0.1, translateY: -222, duration: 2, absolute: true }, "--=5");
 
     tl.to(
       textmain.current.children[1].children[1],
@@ -114,14 +124,15 @@ const Home = () => {
         display: "block",
         translateY: 0,
         duration: 2,
+        absolute: true,
         autoAlpha: 1,
-        ease: "Power4".easeout,
+        ease: "textanm",
       },
       "--=4.8"
     );
 
     //3
-    tl.to(Text2.lines, { ease: "Power1".easeout, autoAlpha: 0.1, translateY: -222, duration: 2, absolute: true }, "--=5");
+    tl.to(Text2.lines, { ease: "textanm".easeout, autoAlpha: 0.1, translateY: -222, duration: 2, absolute: true }, "--=5");
 
     tl.to(
       textmain.current.children[2].children[1],
@@ -134,8 +145,9 @@ const Home = () => {
         display: "block",
         translateY: 0,
         duration: 2,
+        absolute: true,
         autoAlpha: 1,
-        ease: "Power4".easeout,
+        ease: "textanm",
       },
       "--=4.8"
     );
@@ -146,7 +158,8 @@ const Home = () => {
       {
         height: "100vh",
         width: "100vw",
-        duration: 1,
+        duration: 1.2,
+        ease: "vida",
         onStart: () => {
           setTimeout(() => {
             playa();
@@ -156,6 +169,8 @@ const Home = () => {
       },
       "-=4"
     );
+    tl.set(document.body, {overflow: "visible"})
+
   }, []);
 
   useEffect(() => {
@@ -235,8 +250,7 @@ export default Home;
 const Overlaydiv = styled.div`
   width: 100vw;
   height: 100vh;
-  overflow-y: hidden;
-  position: absolute;
+   position: absolute;
   video {
     z-index: 0;
     width: 100%;
@@ -269,13 +283,14 @@ const Overlay2 = styled.div`
   top: 16rem;
 `;
 const Cover = styled.div`
-  overflow-x: hidden;
+overflow: hidden;
   display: flex;
   flex-direction: column;
   position: relative;
   z-index: 2;
   justify-content: center;
   align-items: center;
+
   min-width: 100%;
   min-height: 100vh;
   background-color: #d1cbb8;
@@ -293,7 +308,8 @@ const Midtext = styled.div`
   font-weight: 400;
   color: white;
   overflow: hidden;
-
+   z-index: 4;
+ background-color: aliceblue;
   div {
     font-family: "OurFont", serif;
     display: flex;
